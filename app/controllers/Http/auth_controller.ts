@@ -40,4 +40,9 @@ export default class AuthController {
     }
     return response.status(200).json({ message: 'User successfully logged in', user })
   }
+
+  public async logout({ auth, response }: HttpContext) {
+    await auth.use('web').logout()
+    return response.status(200).json({ message: 'User successfully logged out' })
+  }
 }
