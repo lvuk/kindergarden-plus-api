@@ -15,6 +15,7 @@ router
     router
       .group(() => {
         router.post('/register', [AuthController, 'register']).as('api.auth.register')
+        router.post('/login', [AuthController, 'login']).as('api.auth.login')
       })
       .prefix('auth')
   })

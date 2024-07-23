@@ -29,4 +29,15 @@ export default class AuthController {
       return response.status(400).json({ error: error.message })
     }
   }
+
+  public async login({ request, response }: HttpContext) {
+    const { PIN, email, password } = request.only(['PIN', 'email', 'password'])
+
+    const user = await User.verifyCredentials(email || PIN, password)
+
+    if (!user) {
+      return response.status(400).json({ error: 'Invalid credentials' })
+    }
+    return response.status(200).json({ message: 'User successfully logged in', user })
+  }
 }

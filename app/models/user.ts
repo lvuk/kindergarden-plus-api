@@ -11,7 +11,7 @@ import type { BelongsTo, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Group from './group.js'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
-  uids: ['email'],
+  uids: ['email', 'PIN'],
   passwordColumnName: 'password',
 })
 
