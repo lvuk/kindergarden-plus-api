@@ -3,5 +3,13 @@
   "compilerOptions": {
     "rootDir": "./",
     "outDir": "./build",
+    "baseUrl": ".",
+    "paths": {
+      // "@ioc:Adonis/Core/*": ["./node_modules/@adonisjs/*"],
+      "App/*": ["./app/*"],
+      "#models/*": ["./app/Models/*"],
+      "#validators/*": ["./app/Validators/*"]
+    }
   },
+  "include": ["start/**/*.ts", "app/**/*.ts"]
 }

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 /* eslint-disable unicorn/filename-case */
 import { schema, rules } from '@adonisjs/validator'
+import { Role } from '../enums/role.js'
 export default class RegisterValidator {
   public static schema = schema.create({
     firstName: schema.string({ trim: true }, [
@@ -18,7 +19,7 @@ export default class RegisterValidator {
       rules.maxLength(11),
       rules.minLength(11),
     ]),
-    role: schema.enum.optional(['PARENT', 'EMPLOYEE', 'ADMIN']),
+    role: schema.enum.optional(Object.values(Role)),
     address: schema.string({ trim: true }, [
       rules.required(),
       rules.maxLength(255),

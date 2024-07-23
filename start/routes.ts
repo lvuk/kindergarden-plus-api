@@ -8,12 +8,13 @@
 */
 
 import router from '@adonisjs/core/services/router'
+const AuthController = () => import('#controllers/Http/auth_controller')
 
 router
   .group(() => {
     router
       .group(() => {
-        router.post('/register', 'AuthController.register')
+        router.post('/register', [AuthController, 'register']).as('api.auth.register')
       })
       .prefix('auth')
   })

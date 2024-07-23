@@ -1,0 +1,9 @@
+{
+  "typescript": true,
+  "aliases": {
+    "App": "./app"
+  },
+  "commands": ["./commands/**/*.ts"],
+  "preloads": ["./start/routes"],
+  "providers": ["@adonisjs/core", "@adonisjs/lucid", "@adonisjs/validator"]
+}
