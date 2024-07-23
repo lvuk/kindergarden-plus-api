@@ -29,7 +29,8 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare PIN: string
 
   @column()
-  declare role: Role
+  default!: Role.PARENT
+  declare role: string
 
   @column()
   declare address: string

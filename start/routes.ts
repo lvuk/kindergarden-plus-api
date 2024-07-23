@@ -8,3 +8,13 @@
 */
 
 import router from '@adonisjs/core/services/router'
+
+router
+  .group(() => {
+    router
+      .group(() => {
+        router.post('/register', 'AuthController.register')
+      })
+      .prefix('auth')
+  })
+  .prefix('api/v1')
